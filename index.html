@@ -1,32 +1,26 @@
 <!DOCTYPE html> 
-<!-- 	author: Andre Lempertz 
-		date: 16/11/2016
-		version: 1.0.1 prototype	-->
+<!-- 	author: Andre Lempertz, Patrick Wienzek
+		date: 18/11/2016
+		version: 1.0.2 prototype	-->
 <html lang="en"> 
 <head>
 	<meta charset="UTF-8"/>
-    <title>Prototype</title>
+    <title>Prototype SpaceBear</title>
     <script type="text/javascript" src="//cdn.jsdelivr.net/phaser/2.6.2/phaser.min.js"></script>
+    <script type="text/javascript" src="js/states/boot.js"></script>
+    <script type="text/javascript" src="js/states/preload.js"></script>
+    <script type="text/javascript" src="js/states/menu.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <!-- Webpage styling -->
+    <style>
+      html, body {
+        padding: 0;
+        margin: 0;
+        background: white;/*#02171f;*/
+      }
+    </style>
 </head>
 <body>
-
-<script type="text/javascript">
-
-var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
-
-function preload() {
-	
-}
-
-function create() {
-
-}
-
-function update() {
-
-}
-
-</script>
-
 </body>
 </html>
