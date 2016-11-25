@@ -4,8 +4,8 @@ SpaceBear.menuState = function (){};
 
 SpaceBear.menuState.prototype = {
 	create: function() {
-		// this.startText = this.game.add.bitmapText(this.game.world.centerX, this.game.height - 150, 'carrier_command', 'SPACE BEARRRR', 12);
-    	// this.startText.anchor.setTo(0.5, 0.5);
+		  //this.startText = this.game.add.bitmapText(this.game.world.centerX, this.game.height - 150, 'carrier_command', 'SPACE BEARRRR', 12);
+    	  //this.startText.anchor.setTo(0.5, 0.5);
     	this.map = this.game.add.tilemap('map1');
     	this.map.addTilesetImage('HochkantEins', 'HochkantEins');
     	this.map.addTilesetImage('HochkantZwei', 'HochkantZwei');
@@ -20,5 +20,8 @@ SpaceBear.menuState.prototype = {
     	this.map.addTilesetImage('bruchrechts', 'bruchrechts');
     	this.map.addTilesetImage('MarsLevelFloorPNG (1)', 'MarsLevelFloorPNG (1)');
 		this.map.createLayer('Kachelebene 1').resizeWorld();
+   	},
+   	update: function() {
+
    	}
-} 
+};
