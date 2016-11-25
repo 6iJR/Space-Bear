@@ -15,4 +15,4 @@ SpaceBear.bootState.prototype = {
 
     	this.state.start('preload');
 	}
-}
+};

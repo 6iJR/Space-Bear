@@ -20,5 +20,7 @@ SpaceBear.menuState.prototype = {
     	this.map.addTilesetImage('bruchrechts', 'bruchrechts');
     	this.map.addTilesetImage('MarsLevelFloorPNG (1)', 'MarsLevelFloorPNG (1)');
 		this.map.createLayer('Kachelebene 1').resizeWorld();
+
+		this.state.start('play');
    	}
 } 
