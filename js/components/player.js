@@ -1,9 +1,10 @@
 var SpaceBear = SpaceBear || {};
 
 // PLAYER CLASS //
-SpaceBear.Player = function(game, x, y) {
+SpaceBear.Player = function(game, input, x, y) {
   Phaser.Sprite.call(this, game, x, y, 'player');
   this.game = game;
+  this.input = input;
   this.alive = true;
   this.anchor.setTo(0.5);
 
@@ -90,6 +91,9 @@ SpaceBear.Player.prototype.groundState = function() {
     this.wasOnGround = true;
   }
 
+  // moving left or right
+  this.moveX();
+
   // animate running
   if (Math.abs(this.body.velocity.x)) {
     if (this.facing === 'left') {
@@ -124,6 +128,9 @@ SpaceBear.Player.prototype.airState = function() {
       this.wasOnGround = false;
     }
   }
+
+  // moving left or right
+  this.moveX();
 
   // reduce friction
   this.body.drag.x = this.dragConst / 2;
@@ -190,6 +197,27 @@ SpaceBear.Player.prototype.wallSlideState = function() {
     this.wallBreakClock = 0;
     this.body.maxVelocity.y = this.maxFallSpeed;
     this.currentState = this.groundState;
+  }
+};
+
+SpaceBear.Player.prototype.moveX = function() {
+  // set acceleration on input
+  if (this.input.leftIsDown()) {
+    this.facing = 'left';
+    this.body.acceleration.x = -this.accelConst;
+    // less acceleration if in air
+    if (!this.body.onFloor()) {
+      this.body.acceleration.x = -this.accelConst / 2;
+    }
+  } else if (this.input.rightIsDown()) {
+    this.facing = 'right';
+    this.body.acceleration.x = this.accelConst;
+    // less acceleration if in air
+    if (!this.body.onFloor()) {
+      this.body.acceleration.x = this.accelConst / 2;
+    }
+  } else {
+    this.body.acceleration.x = 0;
   }
 };
 

@@ -20,8 +20,9 @@ SpaceBear.playState.prototype = {
     this.trapsLayer = this.map.createLayer('trapLayer');
     this.fragileLayer = this.map.createLayer('fragileLayer');
 
+    this.input = new SpaceBear.Input(this.game);
     var objects = this.findObjectsByType('playerStart', this.map, 'objectsLayer');
-    this.player = new SpaceBear.Player(this.game, objects[0].x, objects[0].y);
+    this.player = new SpaceBear.Player(this.game, this.input, objects[0].x, objects[0].y);
 
     this.map.setCollisionBetween(1, 2000, true, 'stageLayer');
     this.map.setCollisionBetween(1, 2000, true, 'trapLayer');
