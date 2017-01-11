@@ -15,7 +15,7 @@ SpaceBear.playState.prototype = {
     this.map = this.game.add.tilemap('map1');
     this.map.addTilesetImage('marsLevelFloor', 'marstiles')
 
-    this.stageLayer = this.map.createLayer('noInteractionLayer').resizeWorld();
+    this.noInteractionLayer = this.map.createLayer('noInteractionLayer');
     this.stageLayer = this.map.createLayer('stageLayer');
     this.trapsLayer = this.map.createLayer('trapLayer');
     this.fragileLayer = this.map.createLayer('fragileLayer');
@@ -24,11 +24,12 @@ SpaceBear.playState.prototype = {
     var objects = this.findObjectsByType('playerStart', this.map, 'objectsLayer');
     this.player = new SpaceBear.Player(this.game, this.input, objects[0].x, objects[0].y);
 
-    this.map.setCollisionBetween(1, 2000, true, 'noInteractionLayer');
-    this.map.setCollisionBetween(1, 2000, true, 'stageLayer');
+    //this.map.setCollisionBetween(1, 2000, false, 'noInteractionLayer');
+    this.map.setCollisionBetween(1, 2000, true, 'stageLayer',);
     this.map.setCollisionBetween(1, 2000, true, 'trapLayer');
     this.map.setCollisionBetween(1, 2000, true, 'fragileLayer');
 
+    this.noInteractionLayer.resizeWorld();
     //the camera will follow the player in the world
     this.game.camera.follow(this.player);
 

@@ -7,18 +7,18 @@ SpaceBear.Player = function(game, input, x, y) {
   this.input = input;
   this.alive = true;
   this.anchor.setTo(0.5);
-
+/*
     // animations
   this.animations.add('run-left', [9,10,11,10]);
   this.animations.add('run-right', [0,1,2,1]);
-  this.facing = 'right';
+  this.facing = 'right';*/
 
   var player = this;
 
 
   this.game.physics.arcade.enable(this);
   this.body.collideWorldBounds = true;
-  this.body.setSize(8, 12, 4, 4);
+  this.body.setSize(30, 40, 5, 0);
   this.body.gravity.y = 350;
   this.jumpSpeed = -200;
   this.hSpeed = 190;
@@ -72,14 +72,14 @@ SpaceBear.Player.prototype.update = function() {
 SpaceBear.Player.prototype.pausedState = function() {
   this.body.velocity.x = 0;
   this.body.acceleration.x = 0;
-
+/*
   // stop running animation
   this.animations.stop();
   if (this.facing === 'left') {
     this.frame = 14;
   } else {
     this.frame = 5;
-  }
+  }*/
 };
 
 SpaceBear.Player.prototype.groundState = function() {
@@ -91,11 +91,12 @@ SpaceBear.Player.prototype.groundState = function() {
     this.wasOnGround = true;
   }
 
+
   // moving left or right
   this.moveX();
 
   // animate running
-  if (Math.abs(this.body.velocity.x)) {
+  /*if (Math.abs(this.body.velocity.x)) {
     if (this.facing === 'left') {
       this.animations.play('run-left', 15, true);
     } else {
@@ -112,7 +113,7 @@ SpaceBear.Player.prototype.groundState = function() {
     } else {
       this.frame = 5;
     }
-  }
+  }*/
   // fell off a ledge
   if (!this.body.onFloor()) {
     this.currentState = this.airState;
@@ -134,13 +135,13 @@ SpaceBear.Player.prototype.airState = function() {
 
   // reduce friction
   this.body.drag.x = this.dragConst / 2;
-
+ /*
   // animate
   if (this.facing === 'left') {
     this.frame = 15;
   } else {
     this.frame = 4;
-  }
+  }*/
 
   // wall sliding (pre wall-jump)
   if (this.body.onWall() && this.left > 0 && this.right < this.game.width) {
@@ -175,14 +176,14 @@ SpaceBear.Player.prototype.wallSlideState = function() {
   if (this.body.velocity.y >= this.maxFallSpeed / 4) {
     this.body.velocity.y = this.maxFallSpeed / 4;
   }
-
+  /*
   // animate
   this.animations.stop();
   if (this.facing === 'left') {
     this.frame = 10;
   } else {
     this.frame = 1;
-  }
+  }*/
 
 
   // let go of the wall
@@ -223,14 +224,14 @@ SpaceBear.Player.prototype.moveX = function() {
 
 SpaceBear.Player.prototype.jumpBtnHandler = function() {
   // if player is dead, or if player has already jumped, return
-  if (!this.body || this.spawning || this.currentState == this.pausedState || this.currentState == this.drillState) {
+  /*if (!this.body || this.spawning || this.currentState == this.pausedState || this.currentState == this.drillState) {
     return;
-  }
+  }*/
 
   // reset maxVelocity.x
   this.body.maxVelocity.x = this.hSpeed;
-  this.drilling = false;
-  this.drill.kill();
+  /*this.drilling = false;
+  this.drill.kill();*/
 
   // if on the wall (not edges of game)
   if (this.body.onWall() && !this.body.onFloor() &&
@@ -248,10 +249,10 @@ SpaceBear.Player.prototype.jumpBtnHandler = function() {
     // change state to air state
     this.currentState = this.airState;
   // if on the floor (not on the wall)
-  } else if (this.body.onFloor() || this.wasOnGround) {
-    this.wasOnGround = false;
-    this.jumpSound.play();
-    this.body.velocity.y = this.jumpSpeed;
-    this.currentState = this.airState;
+  } else if (this.body.touching.down) {
+    //this.wasOnGround = false;
+    //this.jumpSound.play();
+    this.body.velocity.y = jumpSpeed;
+    //this.currentState = this.airState;
   }
 };
