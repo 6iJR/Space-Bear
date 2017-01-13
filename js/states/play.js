@@ -25,7 +25,7 @@ SpaceBear.playState.prototype = {
     this.player = new SpaceBear.Player(this.game, this.input, objects[0].x, objects[0].y);
 
     //this.map.setCollisionBetween(1, 2000, false, 'noInteractionLayer');
-    this.map.setCollisionBetween(1, 2000, true, 'stageLayer',);
+    this.map.setCollisionBetween(1, 2000, true, 'stageLayer');
     this.map.setCollisionBetween(1, 2000, true, 'trapLayer');
     this.map.setCollisionBetween(1, 2000, true, 'fragileLayer');
 
@@ -66,7 +66,7 @@ map.objects[layer].forEach(function(element){
   if(element.type === type) {
     //Phaser uses top left, Tiled bottom left so we have to adjust the y position
     element.y -= map.tileHeight;
-     result.push(element);
+    result.push(element);
   }
  });
  return result;

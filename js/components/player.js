@@ -66,6 +66,12 @@ SpaceBear.Player.prototype.update = function() {
 
   // animations and state logic
   this.currentState();
+
+    this.input.update();
+  // handle input
+  if (this.input.primaryPressed()) {
+    this.jumpBtnHandler();
+  }
 };
 
 // STATES //
@@ -224,9 +230,9 @@ SpaceBear.Player.prototype.moveX = function() {
 
 SpaceBear.Player.prototype.jumpBtnHandler = function() {
   // if player is dead, or if player has already jumped, return
-  /*if (!this.body || this.spawning || this.currentState == this.pausedState || this.currentState == this.drillState) {
+  if (!this.body || this.spawning || this.currentState == this.pausedState) {
     return;
-  }*/
+  }
 
   // reset maxVelocity.x
   this.body.maxVelocity.x = this.hSpeed;
@@ -250,9 +256,10 @@ SpaceBear.Player.prototype.jumpBtnHandler = function() {
     this.currentState = this.airState;
   // if on the floor (not on the wall)
   } else if (this.body.touching.down) {
-    //this.wasOnGround = false;
+    this.wasOnGround = false;
     //this.jumpSound.play();
-    this.body.velocity.y = jumpSpeed;
-    //this.currentState = this.airState;
+    this.body.velocity.y = this.jumpSpeed;
+    this.currentState = this.airState;
+    this.input.resetPrimary();
   }
 };
