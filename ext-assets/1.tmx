@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="136" height="39" tilewidth="40" tileheight="40" nextobjectid="13">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="136" height="39" tilewidth="40" tileheight="40" nextobjectid="16">
  <tileset firstgid="1" name="marsLevelFloor" tilewidth="40" tileheight="40" tilecount="80" columns="10">
   <image source="../assets/img/marsLevelFloor.png" width="400" height="320"/>
  </tileset>
- <tileset firstgid="81" name="polarbear" tilewidth="40" tileheight="40" tilecount="1" columns="1">
-  <image source="../assets/img/polarbear.png" width="40" height="40"/>
+ <tileset firstgid="81" name="player_sprite" tilewidth="40" tileheight="40" tilecount="12" columns="6">
+  <image source="../assets/img/player_sprite.png" width="240" height="80"/>
+ </tileset>
+ <tileset firstgid="93" name="fuel" tilewidth="40" tileheight="40" tilecount="10" columns="10">
+  <image source="../assets/img/fuel.png" width="400" height="40"/>
  </tileset>
  <layer name="stageLayer" width="136" height="39">
   <data encoding="csv">
@@ -179,6 +182,12 @@
 </data>
  </layer>
  <objectgroup name="objectsLayer">
-  <object id="11" name="Player" type="playerStart" gid="81" x="398.833" y="1122" width="40" height="40"/>
+  <object id="11" name="fuel" type="portal" gid="93" x="4397.84" y="672.193" width="40" height="40">
+   <properties>
+    <property name="animated" type="bool" value="true"/>
+    <property name="sprite" value="fuel"/>
+   </properties>
+  </object>
+  <object id="14" name="player" type="playerStart" gid="87" x="310.667" y="1161.33" width="40" height="40"/>
  </objectgroup>
 </map>
