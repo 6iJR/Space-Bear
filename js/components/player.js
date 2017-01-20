@@ -8,10 +8,13 @@ SpaceBear.Player = function(game, input, x, y) {
   this.alive = true;
   this.anchor.setTo(0.5);
 
+<<<<<<< HEAD
   //sounds
   this.jumpSound = this.game.add.audio('jump');
   this.jumpSound.volume -= .8;  
 
+=======
+>>>>>>> origin/master
   this.animations.add('run-left', [0,1,2,3,4,5]);
   this.animations.add('run-right', [6,7,8,9,10,11]);
   this.facing = 'right';
@@ -247,7 +250,6 @@ SpaceBear.Player.prototype.jumpBtnHandler = function() {
   // if on the wall (not edges of game)
   if (this.body.onWall() && !this.body.onFloor()) {
     this.wasOnGround = false;
-    this.jumpSound.play();
     this.body.maxVelocity.y = this.maxFallSpeed;
     this.body.velocity.y = this.jumpSpeed;
     // jump away from wall
