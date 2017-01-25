@@ -8,15 +8,12 @@ SpaceBear.Player = function(game, input, x, y) {
   this.alive = true;
   this.anchor.setTo(0.5);
 
-<<<<<<< HEAD
   //sounds
   this.jumpSound = this.game.add.audio('jump');
   this.jumpSound.volume -= .8;  
 
-=======
->>>>>>> origin/master
-  this.animations.add('run-left', [0,1,2,3,4,5]);
-  this.animations.add('run-right', [6,7,8,9,10,11]);
+  this.animations.add('run-left', [15,16,17,18,19]);
+  this.animations.add('run-right', [10,11,12,13,14]);
   this.facing = 'right';
 
   var player = this;

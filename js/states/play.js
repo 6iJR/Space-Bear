@@ -157,7 +157,6 @@ SpaceBear.playState.prototype.playerFragileHandler = function(player, block) {
   // block disappears after .25 seconds
   this.game.time.events.add(250, function() {
 
-<<<<<<< HEAD
     if (!this.fragileSound.isPlaying) {
       this.fragileSound.play();
     }
@@ -165,7 +164,7 @@ SpaceBear.playState.prototype.playerFragileHandler = function(player, block) {
     // store block index so we can replace it later
     var index = block.index;
     this.map.removeTile(block.x, block.y, 'fragileLayer');
-=======
+	
     // store block index so we can replace it later
     var index = block.index;
     this.map.removeTile(block.x, block.y, 'fragileLayer');
@@ -175,7 +174,6 @@ SpaceBear.playState.prototype.playerFragileHandler = function(player, block) {
       // place the block
       this.map.putTile(index, block.x, block.y, 'fragileLayer');
     }, this);*/
->>>>>>> origin/master
   }, this);
 };
 
@@ -210,11 +208,8 @@ SpaceBear.playState.prototype.createFuel = function() {
   // create end-of-level fuel
   this.fuels = this.game.add.group();
   this.fuels.enableBody = true;
-<<<<<<< HEAD
   var result = this.findObjectsByType('portal', this.map, 'objectsLayer');
-=======
   var result = this.findObjectsByType('fuelz', this.map, 'objectsLayer');
->>>>>>> origin/master
   result.forEach(function(element){
     this.createFromTiledObject(element, this.fuels);
   }, this);
