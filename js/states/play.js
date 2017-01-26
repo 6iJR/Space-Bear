@@ -22,13 +22,18 @@ SpaceBear.playState.prototype = {
 
     
 
-
-    cursors = this.game.input.keyboard.createCursorKeys();
     // fade camera in
     this.game.camera.flash(0x000000, 250);
 
-    this.map = this.game.add.tilemap('map1');
-    this.map.addTilesetImage('marsLevelFloor', 'marstiles')
+    this.map = this.game.add.tilemap(SpaceBear.level);
+    switch(SpaceBear.level) {
+    	case '1':
+    		this.map.addTilesetImage('marsLevelFloor', 'marstiles');
+    		break;
+    	case '2':
+    		this.map.addTilesetImage('jupiterLevelFloor', 'jupitertiles');
+    		break;
+    } 
 
     this.noInteractionLayer = this.map.createLayer('noInteractionLayer');
     this.stageLayer = this.map.createLayer('stageLayer');
@@ -47,6 +52,7 @@ SpaceBear.playState.prototype = {
     this.noInteractionLayer.resizeWorld();
 
     this.createFuel();
+    this.createEnemies();
 
     //the camera will follow the player in the world
     this.game.camera.follow(this.player);
@@ -61,24 +67,9 @@ SpaceBear.playState.prototype = {
     this.playerFragileHandler, null, this);
     this.game.physics.arcade.collide(this.player, this.fuels, 
     this.playerFuelHandler, null, this);
+    this.game.physics.arcade.collide(this.player, this.enemiess, 
+    this.playerEnemyHandler, null, this);
 
-    /*if (cursors.up.isDown)
-    {
-        this.game.camera.y -= 10;
-    }
-    else if (cursors.down.isDown)
-    {
-        this.game.camera.y += 10;
-    }
-
-    if (cursors.left.isDown)
-    {
-        this.game.camera.x -= 10;
-    }
-    else if (cursors.right.isDown)
-    {
-        this.game.camera.x += 10;
-    }*/
   }
 };
 
@@ -91,8 +82,6 @@ SpaceBear.playState.prototype.playerFuelHandler = function(player, fuel) {
   }
   this.transporting = true;
 
-  // flag that the state is resetting because of a new level (for tut text)
-  //SpaceBear.newLevel = true;
 
   // stop following player with camera
   this.game.camera.unfollow();
@@ -100,6 +89,30 @@ SpaceBear.playState.prototype.playerFuelHandler = function(player, fuel) {
   // destroy player and fuel
   fuel.pendingDestroy = true;
   player.pendingDestroy = true;
+
+
+  this.game.camera.fade(0x000000, 100);
+  this.game.camera.onFadeComplete.addOnce(function() {
+      SpaceBear.level = fuel.targetTilemap;
+      this.transporting = false;
+      this.game.state.start(this.game.state.current);
+    }, this);
+};
+
+SpaceBear.playState.prototype.playerEnemyHandler = function(player, enemy) {
+  enemy.body.velocity.x = 50;
+  fuel.body.velocity.y = 0;
+
+
+  // stop following player with camera
+  this.game.camera.unfollow();
+
+  player.pendingDestroy = true;
+
+  this.game.camera.fade(0x000000, 100);
+  this.game.camera.onFadeComplete.addOnce(function() {
+      this.game.state.start(this.game.state.current);
+    }, this);
 };
 
 SpaceBear.playState.prototype.playerTrapHandler = function(player, trap) {
@@ -168,12 +181,6 @@ SpaceBear.playState.prototype.playerFragileHandler = function(player, block) {
     // store block index so we can replace it later
     var index = block.index;
     this.map.removeTile(block.x, block.y, 'fragileLayer');
-    /*// replace block 2s after it disappears
-    this.game.time.events.add(2000, function() {
-     
-      // place the block
-      this.map.putTile(index, block.x, block.y, 'fragileLayer');
-    }, this);*/
   }, this);
 };
 
@@ -209,8 +216,16 @@ SpaceBear.playState.prototype.createFuel = function() {
   this.fuels = this.game.add.group();
   this.fuels.enableBody = true;
   var result = this.findObjectsByType('portal', this.map, 'objectsLayer');
-  var result = this.findObjectsByType('fuelz', this.map, 'objectsLayer');
   result.forEach(function(element){
     this.createFromTiledObject(element, this.fuels);
+  }, this);
+};
+
+SpaceBear.playState.prototype.createEnemies = function() {
+  this.enemies = this.game.add.group();
+  this.enemies.enableBody = true;
+  var result = this.findObjectsByType('enemyStart', this.map, 'objectsLayer');
+  result.forEach(function(element){
+    this.createFromTiledObject(element, this.enemies);
   }, this);
 };
