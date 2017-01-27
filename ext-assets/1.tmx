@@ -192,34 +192,34 @@
   <object id="21" name="enemyOne" type="enemyStart" gid="117" x="402" y="1163" width="40" height="40">
    <properties>
     <property name="animated" type="bool" value="true"/>
-    <property name="sprite" value="enemySprite"/>
+    <property name="sprite" value="enemy"/>
    </properties>
   </object>
   <object id="22" name="enemyTwo" type="enemyStart" gid="117" x="1838" y="1163" width="40" height="40">
    <properties>
     <property name="animated" type="bool" value="true"/>
-    <property name="sprite" value="enemySprite"/>
+    <property name="sprite" value="enemy"/>
    </properties>
   </object>
   <object id="23" name="enemyThree" type="enemyStart" gid="117" x="2832" y="1203" width="40" height="40">
    <properties>
     <property name="animated" type="bool" value="true"/>
-    <property name="sprite" value="enemySprite"/>
+    <property name="sprite" value="enemy"/>
    </properties>
   </object>
   <object id="24" name="enemyFour" type="enemyStart" gid="116" x="4639" y="1083" width="40" height="40">
    <properties>
     <property name="animated" type="bool" value="true"/>
-    <property name="sprite" value="enemySprite"/>
+    <property name="sprite" value="enemy"/>
    </properties>
   </object>
-  <object id="25" name="enemyFive" type="enemySta" gid="116" x="4641" y="683" width="40" height="40">
+  <object id="25" name="enemyFive" type="enemyStar" gid="116" x="4641" y="683" width="40" height="40">
    <properties>
     <property name="animated" type="bool" value="true"/>
-    <property name="sprite" value="enemySprite"/>
+    <property name="sprite" value="enemy"/>
    </properties>
   </object>
-  <object id="29" name="Fuel" type="portal" gid="123" x="4396.29" y="674.6" width="40" height="40">
+  <object id="29" name="fuel" type="portal" gid="123" x="4396.29" y="674.6" width="40" height="40">
    <properties>
     <property name="animated" type="bool" value="true"/>
     <property name="sprite" value="fuel"/>

@@ -33,6 +33,15 @@ SpaceBear.playState.prototype = {
     	case '2':
     		this.map.addTilesetImage('jupiterLevelFloor', 'jupitertiles');
     		break;
+      case '3':
+        this.map.addTilesetImage('saturnLevelFloor', 'saturntiles');
+        break;
+      case '4':
+        this.map.addTilesetImage('uranusLevelFloor', 'uranustiles');
+        break;
+      case '5':
+        this.map.addTilesetImage('neptunLevelFloor', 'neptuntiles');
+        break;
     } 
 
     this.noInteractionLayer = this.map.createLayer('noInteractionLayer');
@@ -94,9 +103,7 @@ SpaceBear.playState.prototype.playerFuelHandler = function(player, fuel) {
 
   this.game.camera.fade(0x000000, 100);
   this.game.camera.onFadeComplete.addOnce(function() {
-      SpaceBear.level = fuels.targetTilemap;
-
-      SpaceBear.level = fuel.targetTilemap;
+      SpaceBear.level = '2';
       this.transporting = false;
       this.game.state.start(this.game.state.current);
     }, this);

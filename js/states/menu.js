@@ -31,7 +31,7 @@ SpaceBear.menuState.prototype = {
         SpaceBear.currentTrack = null;
         SpaceBear.newLevel = true;
         // CHANGE FOR DEBUGGING/TESTING LEVELS //
-        SpaceBear.level = '1'; // 1
+        SpaceBear.level = '5'; // 1
         // LEVEL TESTING //
         this.game.camera.onFadeComplete.addOnce(function() {
           this.starting = false;

@@ -165,7 +165,7 @@
                      "sprite":"string"
                     },
                  "rotation":0,
-                 "type":"enemySta",
+                 "type":"enemyStar",
                  "visible":true,
                  "width":40,
                  "x":4641,
@@ -175,7 +175,7 @@
                  "gid":123,
                  "height":40,
                  "id":29,
-                 "name":"Fuel",
+                 "name":"fuel",
                  "properties":
                     {
                      "animated":true,
@@ -192,8 +192,8 @@
                  "type":"portal",
                  "visible":true,
                  "width":40,
-                 "x":4396.28959276018,
-                 "y":674.600301659125
+                 "x":4396.29,
+                 "y":674.6
                 }],
          "opacity":1,
          "type":"objectgroup",
