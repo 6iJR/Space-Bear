@@ -68,11 +68,7 @@ SpaceBear.playState.prototype = {
     this.playerFragileHandler, null, this);
     this.game.physics.arcade.collide(this.player, this.fuels, 
     this.playerFuelHandler, null, this);
-<<<<<<< HEAD
     this.game.physics.arcade.collide(this.player, this.enemies, 
-=======
-    this.game.physics.arcade.collide(this.player, this.enemiess, 
->>>>>>> origin/master
     this.playerEnemyHandler, null, this);
 
   }
@@ -98,11 +94,9 @@ SpaceBear.playState.prototype.playerFuelHandler = function(player, fuel) {
 
   this.game.camera.fade(0x000000, 100);
   this.game.camera.onFadeComplete.addOnce(function() {
-<<<<<<< HEAD
       SpaceBear.level = fuels.targetTilemap;
-=======
+
       SpaceBear.level = fuel.targetTilemap;
->>>>>>> origin/master
       this.transporting = false;
       this.game.state.start(this.game.state.current);
     }, this);
@@ -110,11 +104,8 @@ SpaceBear.playState.prototype.playerFuelHandler = function(player, fuel) {
 
 SpaceBear.playState.prototype.playerEnemyHandler = function(player, enemy) {
   enemy.body.velocity.x = 50;
-<<<<<<< HEAD
   enemy.body.velocity.y = 0;
-=======
-  fuel.body.velocity.y = 0;
->>>>>>> origin/master
+
 
 
   // stop following player with camera
