@@ -50,29 +50,7 @@
          "name":"objectsLayer",
          "objects":[
                 {
-                 "gid":93,
-                 "height":40,
-                 "id":11,
-                 "name":"fuel",
-                 "properties":
-                    {
-                     "animated":true,
-                     "sprite":"fuel"
-                    },
-                 "propertytypes":
-                    {
-                     "animated":"bool",
-                     "sprite":"string"
-                    },
-                 "rotation":0,
-                 "type":"portal",
-                 "visible":true,
-                 "width":40,
-                 "x":4397.84,
-                 "y":672.193
-                }, 
-                {
-                 "gid":87,
+                 "gid":86,
                  "height":40,
                  "id":14,
                  "name":"player",
@@ -80,8 +58,142 @@
                  "type":"playerStart",
                  "visible":true,
                  "width":40,
-                 "x":310.667,
+                 "x":287.667,
                  "y":1161.33
+                }, 
+                {
+                 "gid":117,
+                 "height":40,
+                 "id":21,
+                 "name":"enemyOne",
+                 "properties":
+                    {
+                     "animated":true,
+                     "sprite":"enemy"
+                    },
+                 "propertytypes":
+                    {
+                     "animated":"bool",
+                     "sprite":"string"
+                    },
+                 "rotation":0,
+                 "type":"enemyStart",
+                 "visible":true,
+                 "width":40,
+                 "x":402,
+                 "y":1163
+                }, 
+                {
+                 "gid":117,
+                 "height":40,
+                 "id":22,
+                 "name":"enemyTwo",
+                 "properties":
+                    {
+                     "animated":true,
+                     "sprite":"enemy"
+                    },
+                 "propertytypes":
+                    {
+                     "animated":"bool",
+                     "sprite":"string"
+                    },
+                 "rotation":0,
+                 "type":"enemyStart",
+                 "visible":true,
+                 "width":40,
+                 "x":1838,
+                 "y":1163
+                }, 
+                {
+                 "gid":117,
+                 "height":40,
+                 "id":23,
+                 "name":"enemyThree",
+                 "properties":
+                    {
+                     "animated":true,
+                     "sprite":"enemy"
+                    },
+                 "propertytypes":
+                    {
+                     "animated":"bool",
+                     "sprite":"string"
+                    },
+                 "rotation":0,
+                 "type":"enemyStart",
+                 "visible":true,
+                 "width":40,
+                 "x":2832,
+                 "y":1203
+                }, 
+                {
+                 "gid":116,
+                 "height":40,
+                 "id":24,
+                 "name":"enemyFour",
+                 "properties":
+                    {
+                     "animated":true,
+                     "sprite":"enemy"
+                    },
+                 "propertytypes":
+                    {
+                     "animated":"bool",
+                     "sprite":"string"
+                    },
+                 "rotation":0,
+                 "type":"enemyStart",
+                 "visible":true,
+                 "width":40,
+                 "x":4639,
+                 "y":1083
+                }, 
+                {
+                 "gid":116,
+                 "height":40,
+                 "id":25,
+                 "name":"enemyFive",
+                 "properties":
+                    {
+                     "animated":true,
+                     "sprite":"enemy"
+                    },
+                 "propertytypes":
+                    {
+                     "animated":"bool",
+                     "sprite":"string"
+                    },
+                 "rotation":0,
+                 "type":"enemySta",
+                 "visible":true,
+                 "width":40,
+                 "x":4641,
+                 "y":683
+                }, 
+                {
+                 "gid":123,
+                 "height":40,
+                 "id":29,
+                 "name":"Fuel",
+                 "properties":
+                    {
+                     "animated":true,
+                     "sprite":"fuel",
+                     "targetTilemap":"2"
+                    },
+                 "propertytypes":
+                    {
+                     "animated":"bool",
+                     "sprite":"string",
+                     "targetTilemap":"string"
+                    },
+                 "rotation":0,
+                 "type":"portal",
+                 "visible":true,
+                 "width":40,
+                 "x":4396.28959276018,
+                 "y":674.600301659125
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -90,7 +202,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":16,
+ "nextobjectid":30,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tileheight":40,
@@ -109,28 +221,44 @@
          "tilewidth":40
         }, 
         {
-         "columns":6,
+         "columns":5,
          "firstgid":81,
          "image":"..\/img\/player_sprite.png",
-         "imageheight":80,
-         "imagewidth":240,
+         "imageheight":240,
+         "imagewidth":200,
          "margin":0,
-         "name":"player_sprite",
+         "name":"player",
          "spacing":0,
-         "tilecount":12,
+         "tilecount":30,
          "tileheight":40,
+         "tileproperties":
+            {
+             "20":
+                {
+                 "animated":true,
+                 "sprite":""
+                }
+            },
+         "tilepropertytypes":
+            {
+             "20":
+                {
+                 "animated":"bool",
+                 "sprite":"string"
+                }
+            },
          "tilewidth":40
         }, 
         {
-         "columns":10,
-         "firstgid":93,
-         "image":"..\/img\/fuel.png",
-         "imageheight":40,
-         "imagewidth":400,
+         "columns":6,
+         "firstgid":111,
+         "image":"..\/img\/items.png",
+         "imageheight":160,
+         "imagewidth":240,
          "margin":0,
-         "name":"fuel",
+         "name":"items",
          "spacing":0,
-         "tilecount":10,
+         "tilecount":24,
          "tileheight":40,
          "tilewidth":40
         }],

@@ -21,7 +21,7 @@ SpaceBear.Player = function(game, input, x, y) {
 
   this.game.physics.arcade.enable(this);
   this.body.collideWorldBounds = true;
-  this.body.setSize(21, 39, 12, 0);
+  this.body.setSize(19, 39, 12, 0);
   this.body.gravity.y = 400;
   this.jumpSpeed = -275;
   this.hSpeed = 190;
@@ -119,9 +119,9 @@ if (Math.abs(this.body.velocity.x)) {
     // stop running animation
     this.animations.stop();
     if (this.facing === 'left') {
-      this.frame = 1;
+      this.frame = 0;
     } else {
-      this.frame = 6;
+      this.frame = 0;
     }
   }
   // fell off a ledge
@@ -148,9 +148,9 @@ SpaceBear.Player.prototype.airState = function() {
  
   // animate
   if (this.facing === 'left') {
-    this.frame = 3;
+    this.frame = 27;
   } else {
-    this.frame = 8;
+    this.frame = 20;
   }
 
 
@@ -191,9 +191,9 @@ SpaceBear.Player.prototype.wallSlideState = function() {
   // animate
   this.animations.stop();
   if (this.facing === 'left') {
-    this.frame = 1;
+    this.frame = 26;
   } else {
-    this.frame = 10;
+    this.frame = 21;
   }
 
 
