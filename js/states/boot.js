@@ -7,7 +7,6 @@ SpaceBear.bootState.prototype = {
 		this.load.bitmapFont('carrier_command', 'assets/font/carrier_command.png', 'assets/font/carrier_command.xml');
 	},
 	create: function() {
-		// this.game.stage.background = '#02171f';
 
 		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     	this.scale.pageAlignHorizontally = true;

@@ -247,6 +247,7 @@ SpaceBear.Player.prototype.jumpBtnHandler = function() {
   // if on the wall (not edges of game)
   if (this.body.onWall() && !this.body.onFloor()) {
     this.wasOnGround = false;
+    this.jumpSound.play();
     this.body.maxVelocity.y = this.maxFallSpeed;
     this.body.velocity.y = this.jumpSpeed;
     // jump away from wall
