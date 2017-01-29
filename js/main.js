@@ -1,8 +1,7 @@
-// MAIN GAME ENTRY POINT //
 var SpaceBear = SpaceBear || {};
 
 // game def
-SpaceBear.game = new Phaser.Game(1920, 1080, Phaser.AUTO, '', null, false, false);
+SpaceBear.game = new Phaser.Game(1300, 850, Phaser.AUTO, '', null, false, false);
 
 // game states
 SpaceBear.game.state.add('boot', SpaceBear.bootState);
