@@ -40,18 +40,17 @@ SpaceBear.Player = function(game, input, x, y) {
   this.wallBreakClock = 0;
 
 
-  // init with spawning logic
-  // (state logic begins after spawn timer is up)
+  //spawn
   this.spawning = true;
-  this.frame = 7;
+
   var spawnTween = this.game.add.tween(player).to({ alpha: 0 }, 100, 'Linear', true, 0, -1, true);
-  this.game.time.events.add(700, function() {
+  this.game.time.events.add(400, function() {
     this.spawning = false;
     this.alpha = 1;
     spawnTween.stop();
   }, this);
 
-  // first state after spawn
+  // first state
   this.currentState = this.groundState;
 
   // add to the game
@@ -82,14 +81,6 @@ SpaceBear.Player.prototype.update = function() {
 SpaceBear.Player.prototype.pausedState = function() {
   this.body.velocity.x = 0;
   this.body.acceleration.x = 0;
-/*
-  // stop running animation
-  this.animations.stop();
-  if (this.facing === 'left') {
-    this.frame = 14;
-  } else {
-    this.frame = 5;
-  }*/
 };
 
 SpaceBear.Player.prototype.groundState = function() {
@@ -241,12 +232,11 @@ SpaceBear.Player.prototype.jumpBtnHandler = function() {
 
   // reset maxVelocity.x
   this.body.maxVelocity.x = this.hSpeed;
-  /*this.drilling = false;
-  this.drill.kill();*/
 
   // if on the wall (not edges of game)
   if (this.body.onWall() && !this.body.onFloor()) {
     this.wasOnGround = false;
+    this.jumpSound.play();
     this.body.maxVelocity.y = this.maxFallSpeed;
     this.body.velocity.y = this.jumpSpeed;
     // jump away from wall
