@@ -9,6 +9,14 @@ var cursors;
 SpaceBear.playState.prototype = {
   create: function() {
 
+    //Gametrack
+    if (!SpaceBear.currentTrack) {
+      var trackKey = 'playsound';
+      SpaceBear.currentTrack = this.game.add.audio(trackKey);
+      SpaceBear.currentTrack.volume -= .85;
+      SpaceBear.currentTrack.loopFull();
+    }
+
     //Sounds
     this.fragileSound = this.add.audio('fragile');
     this.fragileSound.volume -= .95;
@@ -109,6 +117,14 @@ SpaceBear.playState.prototype = {
     this.game.layers.ui.fixedToCamera = true;
 
    
+
+    this.game.camera.follow(this.player);
+
+    //death counter
+    this.deathText = this.game.add.bitmapText(this.game.camera.width-100, 30, 'carrier_command', 'deaths ' + SpaceBear.deaths, 18);
+    this.deathText.anchor.setTo(0.5, 0);
+    this.game.layers.ui.add(this.deathText);
+    this.game.layers.ui.fixedToCamera = true;
 
   },
   update: function() {

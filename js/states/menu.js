@@ -128,4 +128,25 @@ SpaceBear.menuState.prototype.nextWord = function() {
     }
 }
 
- 
+      }
+      this.starting = true;
+
+      // after 1.5 sec, transition to next state
+      this.game.time.events.add(700, function() {
+        this.game.camera.fade(0x000000, 250);
+        SpaceBear.currentTrack = null;
+        SpaceBear.newLevel = true;
+
+        // start level for tests
+        SpaceBear.level = '5';
+
+
+        // fade into level
+        this.game.camera.onFadeComplete.addOnce(function() {
+          this.starting = false;
+          this.game.state.start('play');
+        }, this);
+      }, this);
+    }, this);
+  },
+
