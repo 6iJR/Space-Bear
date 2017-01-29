@@ -21,7 +21,10 @@ SpaceBear.preloadState.prototype = {
 		this.load.image('uranustiles', 'assets/img/uranusLevelFloor.png');
 		this.load.image('neptuntiles', 'assets/img/neptunLevelFloor.png');
 		this.load.image('background', 'assets/img/hintergrund.jpg');
+<<<<<<< HEAD
 		this.load.image('startscreen', 'assets/img/startscreen.jpg');
+=======
+>>>>>>> 5a007831159a41d2b46f3efaa7df2d17d525b54e
 
 		//all sonuds
 		this.load.audio('playsound', 'assets/audio/playsound.mp3');

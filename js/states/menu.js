@@ -9,7 +9,11 @@ var content = [
     "",
     "you could help me. Lets do this for me and my family. Help me to reach the fuel at the",
     "",
+<<<<<<< HEAD
     "end of the planets I travel to. Bring me and my family to the planet neptune and we",
+=======
+    "end of the planets I travel to. Bring me and my family to the planet neptun and we",
+>>>>>>> 5a007831159a41d2b46f3efaa7df2d17d525b54e
     "",
     "can live in peace and harmony together.",
     "",
@@ -24,14 +28,21 @@ var content = [
     "", 
 ];
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5a007831159a41d2b46f3efaa7df2d17d525b54e
 var line = [];
 
 var wordIndex = 0;
 var lineIndex = 0;
 
 var wordDelay = 200;
+<<<<<<< HEAD
 var lineDelay = 200;
+=======
+var lineDelay = 400;
+>>>>>>> 5a007831159a41d2b46f3efaa7df2d17d525b54e
 
 // MAIN MENU STATE //
 SpaceBear.menuState = function(){};
@@ -44,9 +55,11 @@ SpaceBear.menuState.prototype = {
       SpaceBear.currentTrack.volume -= .85;
       SpaceBear.currentTrack.loopFull();
     }
+<<<<<<< HEAD
     this.startscreen = this.game.add.sprite(0, 0, 'startscreen');
     this.startscreen.width = this.game.width;
     this.startscreen.height = this.game.height;
+=======
 
   	this.text = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY -200, 'carrier_command',0,10);
   	
@@ -54,7 +67,18 @@ SpaceBear.menuState.prototype = {
     this.nextLine();
     this.text.anchor.setTo(0.5, 0.5);
  
+>>>>>>> 5a007831159a41d2b46f3efaa7df2d17d525b54e
 
+  	this.text = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY -200, 'carrier_command',0,10);
+  	
+
+<<<<<<< HEAD
+    this.nextLine();
+    this.text.anchor.setTo(0.5, 0.5);
+ 
+
+=======
+>>>>>>> 5a007831159a41d2b46f3efaa7df2d17d525b54e
   
     // start button
     var startKey = this.game.input.keyboard.addKey(Phaser.Keyboard.X);
@@ -128,4 +152,29 @@ SpaceBear.menuState.prototype.nextWord = function() {
     }
 }
 
+<<<<<<< HEAD
  
+=======
+      }
+      this.starting = true;
+
+      // after 1.5 sec, transition to next state
+      this.game.time.events.add(700, function() {
+        this.game.camera.fade(0x000000, 250);
+        SpaceBear.currentTrack = null;
+        SpaceBear.newLevel = true;
+
+        // start level for tests
+        SpaceBear.level = '5';
+
+
+        // fade into level
+        this.game.camera.onFadeComplete.addOnce(function() {
+          this.starting = false;
+          this.game.state.start('play');
+        }, this);
+      }, this);
+    }, this);
+  },
+
+>>>>>>> 5a007831159a41d2b46f3efaa7df2d17d525b54e

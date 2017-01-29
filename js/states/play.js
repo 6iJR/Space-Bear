@@ -9,6 +9,17 @@ var cursors;
 SpaceBear.playState.prototype = {
   create: function() {
 
+<<<<<<< HEAD
+=======
+    //Gametrack
+    if (!SpaceBear.currentTrack) {
+      var trackKey = 'playsound';
+      SpaceBear.currentTrack = this.game.add.audio(trackKey);
+      SpaceBear.currentTrack.volume -= .85;
+      SpaceBear.currentTrack.loopFull();
+    }
+
+>>>>>>> 5a007831159a41d2b46f3efaa7df2d17d525b54e
     //Sounds
     this.fragileSound = this.add.audio('fragile');
     this.fragileSound.volume -= .95;
@@ -42,7 +53,11 @@ SpaceBear.playState.prototype = {
         	break;
      	case '5':
        		this.map.addTilesetImage('neptunLevelFloor', 'neptuntiles');
+<<<<<<< HEAD
        		this.levelText = this.game.add.bitmapText(this.game.camera.width - 200, 60, '04b', 'Neptune', 20);
+=======
+       		this.levelText = this.game.add.bitmapText(this.game.camera.width - 200, 60, '04b', 'Neptun', 20);
+>>>>>>> 5a007831159a41d2b46f3efaa7df2d17d525b54e
         	break;
     } 
 
@@ -109,6 +124,17 @@ SpaceBear.playState.prototype = {
     this.game.layers.ui.fixedToCamera = true;
 
    
+<<<<<<< HEAD
+=======
+
+    this.game.camera.follow(this.player);
+>>>>>>> 5a007831159a41d2b46f3efaa7df2d17d525b54e
+
+    //death counter
+    this.deathText = this.game.add.bitmapText(this.game.camera.width-100, 30, 'carrier_command', 'deaths ' + SpaceBear.deaths, 18);
+    this.deathText.anchor.setTo(0.5, 0);
+    this.game.layers.ui.add(this.deathText);
+    this.game.layers.ui.fixedToCamera = true;
 
   },
   update: function() {
