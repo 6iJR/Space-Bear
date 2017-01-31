@@ -1,11 +1,14 @@
 var SpaceBear = SpaceBear || {};
 
+
 var finalText = [
     "WOW! You really did it! Insane! Thank you very much, dear Friend!",
     "",
-    "Thank you so much! And you only killed me "+ SpaceBear.deaths +" times.",
+    "Thank you so much!",
     "",
-    "I mean.. you know.. polarbears just have " + (SpaceBear.deaths+1) +" lives! I think u knew that.",
+    "I mean.. you know.. If you would kill me once more I would be dead forever.",
+    "",
+    "But I think u knew that.",
     "",
     "Finally we can live in a polarbear friendly environment! Well there is ",
     "",
@@ -82,8 +85,6 @@ SpaceBear.finalState.prototype = {
     this.finalscreen.height = this.game.height;
 
   	this.finalText = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY -300, 'carrier_command',0,10);
-  	
-
     this.nextLineFin();
     this.finalText.anchor.setTo(0.5, 0.5);
 
@@ -96,6 +97,8 @@ SpaceBear.finalState.prototype.nextLineFin = function() {
     {
         this.titleText = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY-100, '04b', 'VICTORY', 45);
     	this.titleText.anchor.setTo(0.5, 0.5);
+        this.deathText = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY, 'carrier_command', 'Total deaths:' + SpaceBear.deaths +'', 15);
+        this.deathText.anchor.setTo(0.5, 0.5);
         return;
     }
 
@@ -122,5 +125,11 @@ SpaceBear.finalState.prototype.nextWordFin = function() {
         this.game.time.events.add(lineDelayFin, this.nextLineFin, this);
     }
 }
+
+SpaceBear.finalState.prototype.maxdeaths = function() {
+    var dead = 0;
+    return dead;
+}
+
 
  

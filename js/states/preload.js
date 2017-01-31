@@ -10,6 +10,7 @@ SpaceBear.preloadState.prototype = {
     	}
     	this.load.tilemap('finale','assets/tilemaps/final.json', null, Phaser.Tilemap.TILED_JSON);
 
+
     	//all sprites
 		this.load.spritesheet('player', 'assets/img/player_sprite.png', 40, 40, 29);
 		this.load.spritesheet('fuel', 'assets/img/fuel.png', 40, 40);
@@ -30,6 +31,8 @@ SpaceBear.preloadState.prototype = {
 		this.load.audio('fragile', 'assets/audio/Explosion2.wav');
 		this.load.audio('jump', 'assets/audio/Jump.wav');
 		this.load.audio('win', 'assets/audio/win.mp3');
+		this.load.audio('dead', 'assets/audio/death.wav');
+		this.load.audio('goal', 'assets/audio/goal.wav');
 
 	},
 	create: function () {
