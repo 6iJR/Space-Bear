@@ -1,5 +1,25 @@
 var SpaceBear = SpaceBear || {};
 
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 3f416607eb56a5cbff366ff7abdcf4f6b2372ce7
+var finalText = [
+    "WOW! You really did it! Insane! Thank you very much, dear Friend!",
+    "",
+    "Thank you so much!",
+    "",
+    "I mean.. you know.. If you would kill me once more I would be dead forever.",
+    "",
+<<<<<<< HEAD
+    "But I think u knew that.",
+=======
+    "I mean.. you know.. polarbears just have " + (SpaceBear.deaths+1) +" lives! I think u knew that.",
+=======
+=======
+>>>>>>> physics
 
 var finalText = [
     "WOW! You really did it! Insane! Thank you very much, dear Friend!",
@@ -9,6 +29,11 @@ var finalText = [
     "I mean.. you know.. If you would kill me once more I would be dead forever.",
     "",
     "But I think u knew that.",
+<<<<<<< HEAD
+>>>>>>> physics
+=======
+>>>>>>> physics
+>>>>>>> 3f416607eb56a5cbff366ff7abdcf4f6b2372ce7
     "",
     "Finally we can live in a polarbear friendly environment! Well there is ",
     "",
@@ -85,6 +110,17 @@ SpaceBear.finalState.prototype = {
     this.finalscreen.height = this.game.height;
 
   	this.finalText = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY -300, 'carrier_command',0,10);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+  	
+
+=======
+>>>>>>> physics
+=======
+>>>>>>> physics
+>>>>>>> 3f416607eb56a5cbff366ff7abdcf4f6b2372ce7
     this.nextLineFin();
     this.finalText.anchor.setTo(0.5, 0.5);
 
@@ -97,8 +133,21 @@ SpaceBear.finalState.prototype.nextLineFin = function() {
     {
         this.titleText = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY-100, '04b', 'VICTORY', 45);
     	this.titleText.anchor.setTo(0.5, 0.5);
+<<<<<<< HEAD
         this.deathText = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY, 'carrier_command', 'Total deaths:' + SpaceBear.deaths +'', 15);
         this.deathText.anchor.setTo(0.5, 0.5);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        this.deathText = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY, 'carrier_command', 'Total deaths:' + SpaceBear.deaths +'', 15);
+        this.deathText.anchor.setTo(0.5, 0.5);
+>>>>>>> physics
+=======
+        this.deathText = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY, 'carrier_command', 'Total deaths:' + SpaceBear.deaths +'', 15);
+        this.deathText.anchor.setTo(0.5, 0.5);
+>>>>>>> physics
+>>>>>>> 3f416607eb56a5cbff366ff7abdcf4f6b2372ce7
         return;
     }
 
@@ -126,10 +175,25 @@ SpaceBear.finalState.prototype.nextWordFin = function() {
     }
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> physics
+>>>>>>> 3f416607eb56a5cbff366ff7abdcf4f6b2372ce7
 SpaceBear.finalState.prototype.maxdeaths = function() {
     var dead = 0;
     return dead;
 }
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> physics
+=======
+>>>>>>> physics
+>>>>>>> 3f416607eb56a5cbff366ff7abdcf4f6b2372ce7
  

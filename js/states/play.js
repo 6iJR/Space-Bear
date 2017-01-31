@@ -11,11 +11,27 @@ SpaceBear.playState.prototype = {
 
     //Sounds
     this.fragileSound = this.add.audio('fragile');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    this.fragileSound.volume -= .85;
+=======
+=======
+>>>>>>> physics
+>>>>>>> 3f416607eb56a5cbff366ff7abdcf4f6b2372ce7
     this.fragileSound.volume -= .9;
     this.deathSound = this.add.audio('dead');
     this.deathSound.volume -= .9;
     this.goalSound = this.add.audio('goal');
     this.goalSound.volume -= .9;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> physics
+=======
+>>>>>>> physics
+>>>>>>> 3f416607eb56a5cbff366ff7abdcf4f6b2372ce7
 
 	this.background = this.game.add.sprite(0, 0, 'background');
     this.background.width = this.game.width;
@@ -153,13 +169,39 @@ SpaceBear.playState.prototype.playerFuelHandler = function(player, fuel) {
   player.pendingDestroy = true;
 
     //fade out + levelchange
+<<<<<<< HEAD
     this.game.camera.fade(0x000000, 1000);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    this.game.camera.fade(0x000000, 100);
+=======
+    this.game.camera.fade(0x000000, 1000);
+>>>>>>> physics
+=======
+    this.game.camera.fade(0x000000, 1000);
+>>>>>>> physics
+>>>>>>> 3f416607eb56a5cbff366ff7abdcf4f6b2372ce7
     this.game.camera.onFadeComplete.addOnce(function() {
       SpaceBear.level = fuel.targetTilemap;
       this.transporting = false;
       if(SpaceBear.level === 'final'){
+<<<<<<< HEAD
         var dead = SpaceBear.deaths;
         this.game.state.start('final',dead);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        this.game.state.start('final');
+=======
+        var dead = SpaceBear.deaths;
+        this.game.state.start('final',dead);
+>>>>>>> physics
+=======
+        var dead = SpaceBear.deaths;
+        this.game.state.start('final',dead);
+>>>>>>> physics
+>>>>>>> 3f416607eb56a5cbff366ff7abdcf4f6b2372ce7
       } else {        
         this.game.state.start(this.game.state.current);
       }
