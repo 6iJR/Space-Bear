@@ -1,6 +1,7 @@
 var SpaceBear = SpaceBear || {};
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var finalText = [
     "WOW! You really did it! Insane! Thank you very much, dear Friend!",
     "",
@@ -8,6 +9,8 @@ var finalText = [
     "",
     "I mean.. you know.. polarbears just have " + (SpaceBear.deaths+1) +" lives! I think u knew that.",
 =======
+=======
+>>>>>>> physics
 
 var finalText = [
     "WOW! You really did it! Insane! Thank you very much, dear Friend!",
@@ -17,6 +20,9 @@ var finalText = [
     "I mean.. you know.. If you would kill me once more I would be dead forever.",
     "",
     "But I think u knew that.",
+<<<<<<< HEAD
+>>>>>>> physics
+=======
 >>>>>>> physics
     "",
     "Finally we can live in a polarbear friendly environment! Well there is ",
@@ -95,8 +101,11 @@ SpaceBear.finalState.prototype = {
 
   	this.finalText = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY -300, 'carrier_command',0,10);
 <<<<<<< HEAD
+<<<<<<< HEAD
   	
 
+=======
+>>>>>>> physics
 =======
 >>>>>>> physics
     this.nextLineFin();
@@ -112,6 +121,11 @@ SpaceBear.finalState.prototype.nextLineFin = function() {
         this.titleText = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY-100, '04b', 'VICTORY', 45);
     	this.titleText.anchor.setTo(0.5, 0.5);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        this.deathText = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY, 'carrier_command', 'Total deaths:' + SpaceBear.deaths +'', 15);
+        this.deathText.anchor.setTo(0.5, 0.5);
+>>>>>>> physics
 =======
         this.deathText = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY, 'carrier_command', 'Total deaths:' + SpaceBear.deaths +'', 15);
         this.deathText.anchor.setTo(0.5, 0.5);
@@ -144,12 +158,18 @@ SpaceBear.finalState.prototype.nextWordFin = function() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> physics
 SpaceBear.finalState.prototype.maxdeaths = function() {
     var dead = 0;
     return dead;
 }
 
 
+<<<<<<< HEAD
+>>>>>>> physics
+=======
 >>>>>>> physics
  

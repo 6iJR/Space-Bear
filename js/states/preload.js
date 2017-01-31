@@ -10,6 +10,10 @@ SpaceBear.preloadState.prototype = {
     	}
     	this.load.tilemap('finale','assets/tilemaps/final.json', null, Phaser.Tilemap.TILED_JSON);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> physics
 =======
 
 >>>>>>> physics
@@ -35,6 +39,11 @@ SpaceBear.preloadState.prototype = {
 		this.load.audio('jump', 'assets/audio/Jump.wav');
 		this.load.audio('win', 'assets/audio/win.mp3');
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+		this.load.audio('dead', 'assets/audio/death.wav');
+		this.load.audio('goal', 'assets/audio/goal.wav');
+>>>>>>> physics
 =======
 		this.load.audio('dead', 'assets/audio/death.wav');
 		this.load.audio('goal', 'assets/audio/goal.wav');
