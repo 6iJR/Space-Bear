@@ -1,7 +1,7 @@
 var SpaceBear = SpaceBear || {};
 
 var content = [
-    "“Hello Im Desmond. Its getting pretty hot on earth and the Polar ice caps are melting.",
+    "Hello Im Desmond. Its getting pretty hot on earth and the Polar ice caps are melting.",
     "",
     "Theres not much room left for a polarbear on Earth. Thats why I decided to look for a",
     "",
