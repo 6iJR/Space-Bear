@@ -10,7 +10,7 @@ SpaceBear.Player = function(game, input, x, y) {
 
   //sounds
   this.jumpSound = this.game.add.audio('jump');
-  this.jumpSound.volume -= .8;  
+  this.jumpSound.volume -= .7;  
 
   this.animations.add('run-left', [15,16,17,18,19]);
   this.animations.add('run-right', [10,11,12,13,14]);

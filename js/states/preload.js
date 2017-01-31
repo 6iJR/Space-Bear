@@ -8,6 +8,8 @@ SpaceBear.preloadState.prototype = {
 		for (var i = 1; i <= 5; i++) {
       		this.load.tilemap(i.toString(), 'assets/tilemaps/' + i.toString() + '.json', null, Phaser.Tilemap.TILED_JSON);
     	}
+    	this.load.tilemap('finale','assets/tilemaps/final.json', null, Phaser.Tilemap.TILED_JSON);
+
 
     	//all sprites
 		this.load.spritesheet('player', 'assets/img/player_sprite.png', 40, 40, 29);
@@ -21,15 +23,16 @@ SpaceBear.preloadState.prototype = {
 		this.load.image('uranustiles', 'assets/img/uranusLevelFloor.png');
 		this.load.image('neptuntiles', 'assets/img/neptunLevelFloor.png');
 		this.load.image('background', 'assets/img/hintergrund.jpg');
-<<<<<<< HEAD
 		this.load.image('startscreen', 'assets/img/startscreen.jpg');
-=======
->>>>>>> 5a007831159a41d2b46f3efaa7df2d17d525b54e
+		this.load.image('finalscreen', 'assets/img/final.png');
 
 		//all sonuds
 		this.load.audio('playsound', 'assets/audio/playsound.mp3');
 		this.load.audio('fragile', 'assets/audio/Explosion2.wav');
 		this.load.audio('jump', 'assets/audio/Jump.wav');
+		this.load.audio('win', 'assets/audio/win.mp3');
+		this.load.audio('dead', 'assets/audio/death.wav');
+		this.load.audio('goal', 'assets/audio/goal.wav');
 
 	},
 	create: function () {
