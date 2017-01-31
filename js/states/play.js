@@ -1,28 +1,21 @@
 var SpaceBear = SpaceBear || {};
-
 SpaceBear.deaths = 0;
+
+
 // GAMEPLAY STATE //
 SpaceBear.playState = function(){};
 
 var cursors;
-
 SpaceBear.playState.prototype = {
   create: function() {
 
-<<<<<<< HEAD
-=======
-    //Gametrack
-    if (!SpaceBear.currentTrack) {
-      var trackKey = 'playsound';
-      SpaceBear.currentTrack = this.game.add.audio(trackKey);
-      SpaceBear.currentTrack.volume -= .85;
-      SpaceBear.currentTrack.loopFull();
-    }
-
->>>>>>> 5a007831159a41d2b46f3efaa7df2d17d525b54e
     //Sounds
     this.fragileSound = this.add.audio('fragile');
-    this.fragileSound.volume -= .95;
+    this.fragileSound.volume -= .9;
+    this.deathSound = this.add.audio('dead');
+    this.deathSound.volume -= .9;
+    this.goalSound = this.add.audio('goal');
+    this.goalSound.volume -= .9;
 
 	this.background = this.game.add.sprite(0, 0, 'background');
     this.background.width = this.game.width;
@@ -53,11 +46,7 @@ SpaceBear.playState.prototype = {
         	break;
      	case '5':
        		this.map.addTilesetImage('neptunLevelFloor', 'neptuntiles');
-<<<<<<< HEAD
        		this.levelText = this.game.add.bitmapText(this.game.camera.width - 200, 60, '04b', 'Neptune', 20);
-=======
-       		this.levelText = this.game.add.bitmapText(this.game.camera.width - 200, 60, '04b', 'Neptun', 20);
->>>>>>> 5a007831159a41d2b46f3efaa7df2d17d525b54e
         	break;
     } 
 
@@ -124,17 +113,6 @@ SpaceBear.playState.prototype = {
     this.game.layers.ui.fixedToCamera = true;
 
    
-<<<<<<< HEAD
-=======
-
-    this.game.camera.follow(this.player);
->>>>>>> 5a007831159a41d2b46f3efaa7df2d17d525b54e
-
-    //death counter
-    this.deathText = this.game.add.bitmapText(this.game.camera.width-100, 30, 'carrier_command', 'deaths ' + SpaceBear.deaths, 18);
-    this.deathText.anchor.setTo(0.5, 0);
-    this.game.layers.ui.add(this.deathText);
-    this.game.layers.ui.fixedToCamera = true;
 
   },
   update: function() {
@@ -166,17 +144,26 @@ SpaceBear.playState.prototype.playerFuelHandler = function(player, fuel) {
   // stop following player with camera
   this.game.camera.unfollow();
 
+  if (!this.goalSound.isPlaying) {
+    this.goalSound.play();
+  }
+
   // destroy player and fuel
   fuel.pendingDestroy = true;
   player.pendingDestroy = true;
 
-  //fade out + levelchange
-  this.game.camera.fade(0x000000, 100);
-  this.game.camera.onFadeComplete.addOnce(function() {
+    //fade out + levelchange
+    this.game.camera.fade(0x000000, 1000);
+    this.game.camera.onFadeComplete.addOnce(function() {
       SpaceBear.level = fuel.targetTilemap;
       this.transporting = false;
-      this.game.state.start(this.game.state.current);
-    }, this);
+      if(SpaceBear.level === 'final'){
+        var dead = SpaceBear.deaths;
+        this.game.state.start('final',dead);
+      } else {        
+        this.game.state.start(this.game.state.current);
+      }
+  }, this);
 };
 
 SpaceBear.playState.prototype.playerEnemyHandler = function(player, enemy) {
@@ -190,6 +177,9 @@ SpaceBear.playState.prototype.playerEnemyHandler = function(player, enemy) {
 
   SpaceBear.deaths++;
 
+  if (!this.deathSound.isPlaying) {
+    this.deathSound.play();
+  }
   // show some text, if not already showing any
   if (!this.drawTutText) {
     var text = '';
@@ -203,11 +193,11 @@ SpaceBear.playState.prototype.playerEnemyHandler = function(player, enemy) {
     } else if (rand < 0.4){
       text = 'Poor bear';
     } else if (rand < 0.5) {
-      text = '*burp*';
+      text = '**** this little guys';
     } else if (rand < 0.6) {
       text = 'come on now :[';
     } else if (rand < 0.7) {
-      text = 'What is... feeling?';
+      text = 'Those aliens';
     } else if (rand < 0.8) {
       text = 'Help him, pls!';
     } else if (rand < 0.9) {
@@ -237,6 +227,10 @@ SpaceBear.playState.prototype.playerTrapHandler = function(player, trap) {
   //Todecounter?
   SpaceBear.deaths++;
 
+  if (!this.deathSound.isPlaying) {
+    this.deathSound.play();
+  }
+
   // show some text, if not already showing any
   if (!this.drawTutText) {
     var text = '';
@@ -250,11 +244,11 @@ SpaceBear.playState.prototype.playerTrapHandler = function(player, trap) {
     } else if (rand < 0.4){
       text = 'Poor bear';
     } else if (rand < 0.5) {
-      text = '*burp*';
+      text = 'HOT HOT HOT';
     } else if (rand < 0.6) {
       text = 'come on now :[';
     } else if (rand < 0.7) {
-      text = 'What is... feeling?';
+      text = 'Hes burning!';
     } else if (rand < 0.8) {
       text = 'Help him, pls!';
     } else if (rand < 0.9) {

@@ -467,13 +467,8 @@
                  "type":"enemyStart",
                  "visible":true,
                  "width":40,
-<<<<<<< HEAD
                  "x":5010.57,
                  "y":562.537
-=======
-                 "x":5010.56546102904,
-                 "y":562.53693326541
->>>>>>> 5a007831159a41d2b46f3efaa7df2d17d525b54e
                 }],
          "opacity":1,
          "type":"objectgroup",

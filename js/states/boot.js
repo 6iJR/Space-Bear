@@ -1,7 +1,5 @@
 var SpaceBear = SpaceBear || {};
-
 SpaceBear.bootState = function(){};
-
 SpaceBear.bootState.prototype = {
 	preload: function() {
 		this.load.bitmapFont('carrier_command', 'assets/font/carrier_command.png', 'assets/font/carrier_command.xml');
