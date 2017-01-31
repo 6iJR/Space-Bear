@@ -1,7 +1,7 @@
 var SpaceBear = SpaceBear || {};
 
 // game def
-SpaceBear.game = new Phaser.Game(1200, 920, Phaser.AUTO, '', null, false, false);
+SpaceBear.game = new Phaser.Game(900, 675, Phaser.AUTO, '', null, false, false);
 
 // game states
 SpaceBear.game.state.add('boot', SpaceBear.bootState);

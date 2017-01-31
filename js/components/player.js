@@ -236,7 +236,9 @@ SpaceBear.Player.prototype.jumpBtnHandler = function() {
   // if on the wall (not edges of game)
   if (this.body.onWall() && !this.body.onFloor()) {
     this.wasOnGround = false;
-    this.jumpSound.play();
+    if(!this.jumpSound.isPlaying && SpaceBear.muteBool === 0) {
+      this.jumpSound.play();
+    }
     this.body.maxVelocity.y = this.maxFallSpeed;
     this.body.velocity.y = this.jumpSpeed;
     // jump away from wall
@@ -250,7 +252,9 @@ SpaceBear.Player.prototype.jumpBtnHandler = function() {
   // if on the floor (not on the wall)
   } else if (this.body.onFloor()) {
     this.wasOnGround = false;
-    this.jumpSound.play();
+    if(!this.jumpSound.isPlaying && SpaceBear.muteBool === 0) {
+      this.jumpSound.play();
+    }
     this.body.velocity.y = this.jumpSpeed;
     this.currentState = this.airState;
     this.input.resetPrimary();

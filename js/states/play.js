@@ -1,6 +1,6 @@
 var SpaceBear = SpaceBear || {};
 SpaceBear.deaths = 0;
-
+SpaceBear.muteBool = 0;
 
 // GAMEPLAY STATE //
 SpaceBear.playState = function(){};
@@ -9,31 +9,26 @@ var cursors;
 SpaceBear.playState.prototype = {
   create: function() {
 
+    var muteKey = this.game.input.keyboard.addKey(Phaser.Keyboard.M);
+    muteKey.onDown.add(function() {
+      if(SpaceBear.muteBool === 0) {
+        SpaceBear.currentTrack.stop();
+        SpaceBear.muteBool = 1;
+      } else {
+        SpaceBear.currentTrack.play();
+        SpaceBear.muteBool = 0;
+      }
+    },this);
+
     //Sounds
     this.fragileSound = this.add.audio('fragile');
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    this.fragileSound.volume -= .85;
-=======
-=======
->>>>>>> physics
->>>>>>> 3f416607eb56a5cbff366ff7abdcf4f6b2372ce7
     this.fragileSound.volume -= .9;
     this.deathSound = this.add.audio('dead');
     this.deathSound.volume -= .9;
     this.goalSound = this.add.audio('goal');
     this.goalSound.volume -= .9;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> physics
-=======
->>>>>>> physics
->>>>>>> 3f416607eb56a5cbff366ff7abdcf4f6b2372ce7
 
-	this.background = this.game.add.sprite(0, 0, 'background');
+	 this.background = this.game.add.sprite(0, 0, 'background');
     this.background.width = this.game.width;
     this.background.height = this.game.height;
     this.background.fixedToCamera = true;
@@ -46,24 +41,24 @@ SpaceBear.playState.prototype = {
     switch(SpaceBear.level) {
     	case '1':
     		this.map.addTilesetImage('marsLevelFloor', 'marstiles');
-    		this.levelText = this.game.add.bitmapText(this.game.camera.width - 200, 60, '04b', 'Mars', 20);
+    		this.levelText = this.game.add.bitmapText(this.game.camera.width - 150, 60, '04b', 'Mars', 15);
     		break;
     	case '2':
     		this.map.addTilesetImage('jupiterLevelFloor', 'jupitertiles');
-    		this.levelText = this.game.add.bitmapText(this.game.camera.width - 200, 60, '04b', 'Jupiter', 20);
+    		this.levelText = this.game.add.bitmapText(this.game.camera.width - 150, 60, '04b', 'Jupiter', 15);
     		break;
-      	case '3':
-        	this.map.addTilesetImage('saturnLevelFloor', 'saturntiles');
-        	this.levelText = this.game.add.bitmapText(this.game.camera.width - 200, 60, '04b', 'Saturn', 20);
-        	break;
-      	case '4':
-        	this.map.addTilesetImage('uranusLevelFloor', 'uranustiles');
-        	this.levelText = this.game.add.bitmapText(this.game.camera.width - 200, 60, '04b', 'Uranus', 20);
-        	break;
-     	case '5':
-       		this.map.addTilesetImage('neptunLevelFloor', 'neptuntiles');
-       		this.levelText = this.game.add.bitmapText(this.game.camera.width - 200, 60, '04b', 'Neptune', 20);
-        	break;
+      case '3':
+      	this.map.addTilesetImage('saturnLevelFloor', 'saturntiles');
+      	this.levelText = this.game.add.bitmapText(this.game.camera.width - 150, 60, '04b', 'Saturn', 15);
+      	break;
+    	case '4':
+      	this.map.addTilesetImage('uranusLevelFloor', 'uranustiles');
+      	this.levelText = this.game.add.bitmapText(this.game.camera.width - 150, 60, '04b', 'Uranus', 15);
+      	break;
+   	  case '5':
+     		this.map.addTilesetImage('neptunLevelFloor', 'neptuntiles');
+     		this.levelText = this.game.add.bitmapText(this.game.camera.width - 150, 60, '04b', 'Neptune', 15);
+      	break;
     } 
 
     //init layers
@@ -103,28 +98,16 @@ SpaceBear.playState.prototype = {
       ui: this.game.add.group()
     };
 
-	this.game.camera.roundPx = true;
-	this.game.renderer.renderSession.roundPixels = true
-    this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
-    // ... in your state or game setup...
-    this.cameraPos = new Phaser.Point(0, 0); 
-    // store the smoothed virtual camera position
-    this.cameraLerp = 0.1; 
-    // specifies how tightly the camera follows; 1 for locked to object, lower values for smoother following
-    // ... in your update function...
-    this.cameraPos.x += (this.player.x - this.cameraPos.x) * this.cameraLerp; 
-    // smoothly adjust the x position
-    this.cameraPos.y += (this.player.y - this.cameraPos.y) * this.cameraLerp; 
-    // smoothly adjust the y position
-    this.game.camera.focusOnXY(this.cameraPos.x, this.cameraPos.y); 
-    // apply smoothed virtual positions to actual camera
 
+    this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
     
 
     //fix death counter on screen
-    this.deathText = this.game.add.bitmapText(this.game.camera.width - 200, 30, '04b', 'Deaths ' + SpaceBear.deaths, 20);
+    this.deathText = this.game.add.bitmapText(this.game.camera.width - 150, 30, '04b', 'Deaths ' + SpaceBear.deaths, 15);
+    this.muteText = this.game.add.bitmapText(30, this.game.camera.height-15, 'carrier_command', 'Mute: M', 8);
     this.game.layers.ui.add(this.deathText);
     this.game.layers.ui.add(this.levelText);
+    this.game.layers.ui.add(this.muteText);
 
     this.game.layers.ui.fixedToCamera = true;
 
@@ -160,7 +143,7 @@ SpaceBear.playState.prototype.playerFuelHandler = function(player, fuel) {
   // stop following player with camera
   this.game.camera.unfollow();
 
-  if (!this.goalSound.isPlaying) {
+  if (!this.goalSound.isPlaying && SpaceBear.muteBool === 0) {
     this.goalSound.play();
   }
 
@@ -169,39 +152,13 @@ SpaceBear.playState.prototype.playerFuelHandler = function(player, fuel) {
   player.pendingDestroy = true;
 
     //fade out + levelchange
-<<<<<<< HEAD
     this.game.camera.fade(0x000000, 1000);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    this.game.camera.fade(0x000000, 100);
-=======
-    this.game.camera.fade(0x000000, 1000);
->>>>>>> physics
-=======
-    this.game.camera.fade(0x000000, 1000);
->>>>>>> physics
->>>>>>> 3f416607eb56a5cbff366ff7abdcf4f6b2372ce7
     this.game.camera.onFadeComplete.addOnce(function() {
       SpaceBear.level = fuel.targetTilemap;
       this.transporting = false;
       if(SpaceBear.level === 'final'){
-<<<<<<< HEAD
         var dead = SpaceBear.deaths;
         this.game.state.start('final',dead);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        this.game.state.start('final');
-=======
-        var dead = SpaceBear.deaths;
-        this.game.state.start('final',dead);
->>>>>>> physics
-=======
-        var dead = SpaceBear.deaths;
-        this.game.state.start('final',dead);
->>>>>>> physics
->>>>>>> 3f416607eb56a5cbff366ff7abdcf4f6b2372ce7
       } else {        
         this.game.state.start(this.game.state.current);
       }
@@ -219,7 +176,7 @@ SpaceBear.playState.prototype.playerEnemyHandler = function(player, enemy) {
 
   SpaceBear.deaths++;
 
-  if (!this.deathSound.isPlaying) {
+  if (!this.deathSound.isPlaying && SpaceBear.muteBool === 0) {
     this.deathSound.play();
   }
   // show some text, if not already showing any
@@ -229,19 +186,19 @@ SpaceBear.playState.prototype.playerEnemyHandler = function(player, enemy) {
     if (rand < 0.1) {
       text = 'Sorry Mate';
     } else if (rand < 0.2) {
-      text = 'Ouch, that hurts!';
+      text = 'youre supposed to help me';
     } else if (rand < 0.3) {
       text = 'PLS STOP!';
     } else if (rand < 0.4){
       text = 'Poor bear';
     } else if (rand < 0.5) {
-      text = '**** this little guys';
+      text = '**** these little guys';
     } else if (rand < 0.6) {
       text = 'come on now :[';
     } else if (rand < 0.7) {
       text = 'Those aliens';
     } else if (rand < 0.8) {
-      text = 'Help him, pls!';
+      text = 'Help me, pls!';
     } else if (rand < 0.9) {
       text = 'Stop being like that';
     } else {
@@ -269,7 +226,7 @@ SpaceBear.playState.prototype.playerTrapHandler = function(player, trap) {
   //Todecounter?
   SpaceBear.deaths++;
 
-  if (!this.deathSound.isPlaying) {
+  if (!this.deathSound.isPlaying && SpaceBear.muteBool === 0) {
     this.deathSound.play();
   }
 
@@ -286,13 +243,13 @@ SpaceBear.playState.prototype.playerTrapHandler = function(player, trap) {
     } else if (rand < 0.4){
       text = 'Poor bear';
     } else if (rand < 0.5) {
-      text = 'HOT HOT HOT';
+      text = 'Um.. are you okay?';
     } else if (rand < 0.6) {
-      text = 'come on now :[';
+      text = 'youre supposed to help me';
     } else if (rand < 0.7) {
-      text = 'Hes burning!';
+      text = 'You killed me';
     } else if (rand < 0.8) {
-      text = 'Help him, pls!';
+      text = 'Help me, pls!';
     } else if (rand < 0.9) {
       text = 'Stop being like that';
     } else {
@@ -341,7 +298,7 @@ SpaceBear.playState.prototype.enemyStageHandler = function(enemies, trap) {
 SpaceBear.playState.prototype.playerFragileHandler = function(player, block) {
   // block disappears with breaksound
   this.game.time.events.add(250, function() {
-    if (!this.fragileSound.isPlaying) {
+    if (!this.fragileSound.isPlaying && SpaceBear.muteBool === 0) {
       this.fragileSound.play();
     }
     this.map.removeTile(block.x, block.y, 'fragileLayer');

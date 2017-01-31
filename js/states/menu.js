@@ -41,14 +41,14 @@ SpaceBear.menuState.prototype = {
   	if (!SpaceBear.currentTrack) {
       var trackKey = 'playsound';
       SpaceBear.currentTrack = this.game.add.audio(trackKey);
-      SpaceBear.currentTrack.volume -= .35;
+      SpaceBear.currentTrack.volume -= .65;
       SpaceBear.currentTrack.loopFull();
     }
     this.startscreen = this.game.add.sprite(0, 0, 'startscreen');
     this.startscreen.width = this.game.width;
     this.startscreen.height = this.game.height;
 
-  	this.text = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY -200, 'carrier_command',0,10);
+  	this.text = this.game.add.bitmapText(this.game.world.centerX, this.game.world.centerY -200, 'carrier_command',0,8);
   	
 
     this.nextLine();
