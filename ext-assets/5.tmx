@@ -168,12 +168,12 @@
 </data>
  </layer>
  <objectgroup name="objectsLayer">
-  <object id="13" name="player" type="playerStart" gid="30" x="198.167" y="761" width="40" height="40"/>
+  <object id="13" name="player" type="playerStart" gid="30" x="200.285" y="760.788" width="40" height="40"/>
   <object id="20" name="fuel" type="portal" gid="13" x="7699" y="506" width="40" height="40">
    <properties>
     <property name="animated" type="bool" value="true"/>
     <property name="sprite" value="fuel"/>
-    <property name="targetTilemap" value="6"/>
+    <property name="targetTilemap" value="final"/>
    </properties>
   </object>
   <object id="22" name="enemyOne" type="enemyStart" gid="7" x="162.667" y="444" width="40" height="40">
